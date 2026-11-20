@@ -1,0 +1,13 @@
+﻿diff --git a/src/billing/tax_calculator.py b/src/billing/tax_calculator.py
+index 8f21a10..c44b912 100644
+--- a/src/billing/tax_calculator.py
++++ b/src/billing/tax_calculator.py
+@@ -12,9 +12,8 @@ def calculate_invoice_total(items: list[Item], tax_rate: Decimal) -> Decimal:
+-    total = Decimal("0.00")
+-    for item in items:
+-        line_tax = (item.amount * tax_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+-        total += item.amount + line_tax
+-    return total
++    subtotal = sum((item.amount for item in items), Decimal("0.00"))
++    tax = (subtotal * tax_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
++    return subtotal + tax

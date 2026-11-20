@@ -1,0 +1,8 @@
+﻿diff --git a/README.md b/README.md
+index 11a0b22..39c4d10 100644
+--- a/README.md
++++ b/README.md
+@@ -14,3 +14,4 @@
+ ## Local Setup
+ Run `pytest` to execute the billing unit and integration suite.
++Run `ruff check .` before opening a pull request.

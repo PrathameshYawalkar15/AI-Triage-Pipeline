@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testsuites tests="2" failures="0" errors="1" time="4.35">
+  <testsuite name="billing_service.tests.test_webhooks" tests="2" failures="0" errors="1" time="4.35">
+    <testcase classname="billing_service.tests.test_webhooks" name="test_webhook_signature_valid" time="0.18" />
+    <testcase classname="billing_service.tests.test_webhooks" name="test_webhook_delivery_retry" time="4.17">
+      <error message="requests.exceptions.ReadTimeout: HTTPConnectionPool(host='sandbox-webhook.internal', port=8080): Read timed out. (read timeout=2.0)" type="ReadTimeout">
+tests/test_webhooks.py:72: in test_webhook_delivery_retry
+    resp = client.deliver_event(event_id="evt_9921", timeout=2.0)
+src/billing/webhooks.py:31: in deliver_event
+    return requests.post(self.endpoint, json=payload, timeout=timeout)
+E   requests.exceptions.ReadTimeout: HTTPConnectionPool(host='sandbox-webhook.internal', port=8080): Read timed out. (read timeout=2.0)
+      </error>
+    </testcase>
+  </testsuite>
+</testsuites>

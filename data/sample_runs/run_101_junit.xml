@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testsuites tests="3" failures="1" errors="0" time="1.42">
+  <testsuite name="billing_service.tests.test_invoices" tests="3" failures="1" errors="0" time="1.42">
+    <testcase classname="billing_service.tests.test_invoices" name="test_invoice_creation_valid" time="0.21" />
+    <testcase classname="billing_service.tests.test_invoices" name="test_invoice_rounding_matches_ledger" time="0.84">
+      <failure message="AssertionError: assert Decimal('19.96') == Decimal('19.95')" type="AssertionError">
+tests/test_invoices.py:48: in test_invoice_rounding_matches_ledger
+    assert total_with_tax == Decimal("19.95")
+E   AssertionError: assert Decimal('19.96') == Decimal('19.95')
+E    +  where Decimal('19.96') = calculate_invoice_total(items=[Item(10.03), Item(6.73)], tax_rate=Decimal("0.19"))
+      </failure>
+    </testcase>
+    <testcase classname="billing_service.tests.test_invoices" name="test_invoice_refund_partial" time="0.37" />
+  </testsuite>
+</testsuites>
