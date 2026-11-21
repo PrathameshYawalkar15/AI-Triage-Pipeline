@@ -63,7 +63,7 @@ TEST_HISTORY_DB: dict[str, dict[str, Any]] = {
     },
 }
 
-mcp = FastMCP("AI Triage Pipeline")
+mcp = MCPServer("AI-Triage-Pipeline")
 
 
 # ---------------------------------------------------------------------------

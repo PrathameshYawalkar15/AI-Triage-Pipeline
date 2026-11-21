@@ -1,3 +1,20 @@
-﻿{
-  "tickets": []
+{
+  "tickets": [
+    {
+      "ticket_id": "TRIAGE-RUN_101",
+      "title": "[product_regression] test_invoice_rounding_matches_ledger failed on a1b2c3",
+      "severity": "High",
+      "root_cause_category": "product_regression",
+      "description": "The test `test_invoice_rounding_matches_ledger` failed due to an assertion error comparing the calculated invoice total against the expected ledger total. This is likely a product regression caused by the recent change in `src/billing/tax_calculator.py` that simplified the VAT calculation. The change introduced a discrepancy in the rounding logic, leading to an unexpected total.",
+      "reproduction_steps": [
+        "git checkout a1b2c3",
+        "pytest -k test_invoice_rounding_matches_ledger"
+      ],
+      "suspected_files": [
+        "src/billing/tax_calculator.py"
+      ],
+      "citations": [],
+      "created_at": "2026-11-21T15:19:01.653671Z"
+    }
+  ]
 }
